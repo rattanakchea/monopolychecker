@@ -1,0 +1,26 @@
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body #content{
+  min-height: 700px;
+}
+.footer {
+  width: 100%;
+  background-color: #CECECE;
+}
+
+/*fixed-navbar*/
+body > .container {
+  padding: 60px 15px 0;
+}
+.container .text-muted {
+  margin: 20px 0;
+}
+
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
