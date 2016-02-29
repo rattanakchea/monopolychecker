@@ -5,7 +5,9 @@ html {
   min-height: 100%;
 }
 body #content{
-  min-height: 700px;
+  min-height: 500px;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 1.3em;
 }
 .footer {
   width: 100%;
