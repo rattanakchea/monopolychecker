@@ -16,6 +16,7 @@ Feel free to fork and make a pull request.
 * Fixed top navbar
 * Clean code structure with basic route setup
 * Seperate partial code tempate for navbar and footer
+* Update to user bower
 
 ## Working on
 * Integreate bootswatch theme

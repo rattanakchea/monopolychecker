@@ -6,15 +6,20 @@ var app = angular.module('appName', [
   $routeProvider
   .when('/', {
     templateUrl: 'views/home.html',
-    controller: 'HomeCtrl',
-    controllerAs: 'main'
+    controller: 'HomeCtrl'
   })
   .when('/about', {
     templateUrl: 'views/about.html',
-    controller: 'HomeCtrl',
-    controllerAs: 'main'
+    controller: 'HomeCtrl'
   })
   .otherwise({
     redirectTo: '/'
   });
 });
+
+app.constant('CONFIG', {
+      appName: 'MyApp',
+      version: '1.0',
+      developer: 'Rattanak'
+    }
+);
