@@ -10,10 +10,21 @@ Rattanak Chea - Web Developer
 Feel free to fork and make a pull request.
 
 ## Features
-* Jquery, Bootstrat
-* Update to use bower
+* Simple and Mininal Web app template using JQuery, Bootstrap, AngularJS, Angular Route
 * Font Awesome CDN included
-* Fixed top navbar
 * Clean code structure with basic route setup
-* Seperate partial code tempate for navbar and footer
-* Use Google Font
+* Fixed top navbar
+
+## Changes
+* 2/29/2016
+    * update to user bower
+    * add google font
+
+## Installation
+- git clone this repo
+- run `bower install` to install the dependencies
+- run a local server fo your choice.
+
+Python: `python - m SimpleHTTPServer 8000`
+
+PHP: `php -S localhost:8000`
