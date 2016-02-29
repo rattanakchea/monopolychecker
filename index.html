@@ -1,43 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="appName">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="some description about the app">
     <meta name="author" content="Rattanak Chea">
-    <title>My App</title>
-    <link href="css/bootstrap.css" rel="stylesheet">
+    <title>{{appName}}</title>
+    <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+
     <link href="css/main.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
-
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
-    </head>
-    <body ng-app="appName" ng-controller="HomeCtrl">
+</head>
 
-        <!-- Navigation -->
-        <div ng-include="'views/partials/_navbar.html'"></div>
+<body>
+    <!-- Navigation -->
+    <div ng-include="'views/partials/_navbar.html'"></div>
+    <!-- Page Content -->
+    <div class="container" id="content">
+        <div class="ng-view="></div>
+    </div>
+    <!-- end container -->
+    <!-- Footer -->
+    <div ng-include="'views/partials/_footer.html'"></div>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
 
-        <!-- Page Content -->
-        <div class="container" id="content">
-            <div class="ng-view="></div>        
-        </div>
-        <!-- end container -->
 
-        <!-- Footer -->
-        <div ng-include="'views/partials/_footer.html'"></div>
+    <script src="bower_components/angular-route/angular-route.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controllers/home.js"></script>
+</body>
 
-        <script src="js/libs/jquery.js"></script>
-        <script src="js/libs/bootstrap.min.js"></script>
-        <script src="js/libs/angular.js"></script>
-        <script src="js/libs/angular-route.js"></script>
-
-        <script src="js/app.js"></script>
-        <script src="js/controllers/home.js"></script>        
-    </body>
 </html>
