@@ -18,7 +18,7 @@ var app = angular.module('appName', [
 });
 
 app.constant('CONFIG', {
-      appName: 'MyApp',
+      appName: 'Monopoly Checker',
       version: '1.0',
       developer: 'Rattanak'
     }
