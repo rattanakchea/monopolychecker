@@ -5,16 +5,26 @@
     </p>
 </div>
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-xs-6 col-md-6">
         <div ng-repeat="group in alphabets">
             <h2 class="group">
 	        {{group.group}} <small>{{prizes[$index]}} </small>
 	        </h2>
             <div class="input-group">
                 <span ng-repeat="entry in group.entries">
-            	<input type="checkbox" value="{{entry}}"> {{entry}} &nbsp;
+            	<input type="checkbox" value="{{entry.key}}" ng-model="entry.selected" ng-change="change($index, entry.key)"> {{entry.key}} &nbsp;
             	</span>
             </div>
         </div>
+    </div>
+    <div class="col-xs-6 col-md-6">
+        <input type="submit" value="Reset Game" class="btn btn-warning" ng-click="resetGame()">
+        <input type="submit" value="Check Result" class="btn btn-success" ng-click="checkResult()">
+        <div ng-hide="isWinning()" class="alert alert-warning" role="alert">
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> You have won a Monopoly game. Keep playing.
+        </div>
+        <ul ng-show="results.length > 0">
+            <li ng-repeat="r in results">{{r.text}}</li>
+        </ul>
     </div>
 </div>

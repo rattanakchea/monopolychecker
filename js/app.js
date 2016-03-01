@@ -1,8 +1,9 @@
 'use strict';
 var app = angular.module('appName', [
-  'ngRoute'
+  'ngRoute',
+  'LocalStorageModule'
   ])
-.config(function ($routeProvider) {
+.config(function ($routeProvider, localStorageServiceProvider) {
   $routeProvider
   .when('/', {
     templateUrl: 'views/home.html',
@@ -15,6 +16,12 @@ var app = angular.module('appName', [
   .otherwise({
     redirectTo: '/'
   });
+
+  //config local storage
+  localStorageServiceProvider
+    .setPrefix('monopolychecker')
+    .setStorageCookie(0);
+
 });
 
 app.constant('CONFIG', {

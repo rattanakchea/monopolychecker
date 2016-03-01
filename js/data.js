@@ -93,22 +93,31 @@ function buildData2() {
                 start++;
                 flag = true;
             }
-            alphabets[i].entries.push(alphabets[i].group + (start++) + getChar(65 + j))
+            alphabets[i].entries.push({
+                key: alphabets[i].group + (start++) + getChar(65 + j),
+                selected: false
+            })
         }
         
     }
 
    addData('$', 8);
     for (var j = 0; j < alphabets[26].count; j++) {
-            alphabets[26].entries.push(alphabets[26].group + (start++) + getChar(65 + j))
+            alphabets[26].entries.push({
+                key: alphabets[26].group + (start++) + getChar(65 + j),
+                selected: false
+            })
         }
 
    addData('?', 8);
    for (var j = 0; j < alphabets[27].count; j++) {
-            alphabets[27].entries.push(alphabets[27].group + (start++) + getChar(65 + j))
+            alphabets[27].entries.push({
+                key: alphabets[27].group + (start++) + getChar(65 + j),
+                selected: false
+            })
         }
 
-   console.log(alphabets);
+   //console.log(alphabets);
 }
 
 buildData();
