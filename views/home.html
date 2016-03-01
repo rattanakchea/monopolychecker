@@ -1,12 +1,20 @@
 <div class="page-header">
-<h1>Angular Barebone Template</h1>
+    <p>
+        <input type="text" ng-model="search" placeholder="Type your entry">
+        <input type="submit" value="Add" class="btn btn-primary">
+    </p>
 </div>
-<p class="lead">Features include</p>
-<ul>
-	<li>Jquery, Bootstra ready template</li>
-	<li>Angular & Angular Route included</li>
-	<li>Font Awesome CDN included</li>
-	<li>fixed top navbar</li>
-	<li>Clean code structure with basic route setup</li>
-	<li>seprate partial code tempate for navbar and footer</li>
-</ul>
+<div class="row">
+    <div class="col-md-6">
+        <div ng-repeat="group in alphabets">
+            <h2 class="group">
+	        {{group.group}} <small>{{prizes[$index]}} </small>
+	        </h2>
+            <div class="input-group">
+                <span ng-repeat="entry in group.entries">
+            	<input type="checkbox" value="{{entry}}"> {{entry}} &nbsp;
+            	</span>
+            </div>
+        </div>
+    </div>
+</div>

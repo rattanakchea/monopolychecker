@@ -14,6 +14,7 @@ quickly allow users to enter their Entry and get real time result of the prizes 
 
 ## Content
 - Color schema: reddish
+
 - Monopoly is trademark of @copy monopoly, we are not associated in any way.
 The app is built in order to facilitate the playing of the monopoly game that runs through 5/3/2016.
 
