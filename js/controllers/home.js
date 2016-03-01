@@ -42,9 +42,11 @@ app.controller('HomeCtrl', function($scope, $location, CONFIG, $rootScope, local
 
     //if all in entries in a group are true
     $scope.checkResult = function() {
-    	btnCheckResultClicked = true;
-    	$scope.results = [];
+    	
+    	//toggle alert message
+    	btnCheckResultClicked = !btnCheckResultClicked;
 
+    	$scope.results = [];
         angular.forEach($scope.alphabets, function(group, key) {
            for(var i=0; i < group.entries.length; i++){
            	 	 var entry = group.entries[i];
