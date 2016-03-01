@@ -20,7 +20,8 @@ var app = angular.module('appName', [
   //config local storage
   localStorageServiceProvider
     .setPrefix('monopolychecker')
-    .setStorageCookie(0);
+    .setStorageCookie(0)
+    .setNotify(true, true);
 
 });
 

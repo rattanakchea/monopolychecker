@@ -7,23 +7,81 @@ app.controller('HomeCtrl', function($scope, $location, CONFIG, $rootScope, local
     $rootScope.appName = CONFIG.appName;
     $scope.prizes = prizes;
 
+
+
+
     $scope.resetGame = function() {
         if (confirm('Are you sure? ')) {
             localStorageService.clearAll();
-            localStorageService.set('data', alphabets);
-            $scope.alphabets = localStorageService.get('data');
+            initGame();
         }
     };
 
-    if (localStorageService.isSupported) {
-        console.log('localstorage is supported');
-        //if no localstorage on key 'data'
-        if (!localStorageService.get('data')) {
-            localStorageService.set('data', alphabets);
+   	function updateCurrentGame(){
+   		$scope.currentGame = localStorageService.get('currentGame');
+   	}
+    
+   
+    function initGame() {
+        var lsKeys = localStorageService.keys();
+        console.log('keys: ', lsKeys);
+
+        if (lsKeys.length == 0) {
+            localStorageService.set('game-1', alphabets);
+            localStorageService.set('currentGame', 'game-1');
+            $scope.alphabets = alphabets;
         } else {
-            $scope.alphabets = localStorageService.get('data');
-            //console.log($scope.alphabets);
+            $scope.gameArray = [];
+            lsKeys.forEach(function(element, key) {
+                if (element.indexOf('game') > -1) {
+                    $scope.gameArray.push(element);
+                }
+            })
+            var currentGame = localStorageService.get('currentGame') || lsKeys[0];
+            $scope.alphabets = localStorageService.get(currentGame);
+             updateCurrentGame();
         }
+    }
+
+    $scope.createNewGame = function() {
+        
+        if ($scope.gameArray.length > 2){
+        	alert("Hey you can only up to 3 games");
+        	return;
+        }
+
+        var last = $scope.gameArray[$scope.gameArray.length -1];
+
+        //replace last char
+        var newNum = parseInt(last[last.length -1]) + 1
+        var key = last.slice(0,-1) + newNum;
+
+        $scope.gameArray.push(key);
+        localStorageService.set(key, alphabets);
+        localStorageService.set('currentGame', key);
+        updateCurrentGame();
+
+        $scope.alphabets = alphabets;
+    }
+
+
+    $scope.loadGame = function(key) {
+    	//console.log('key: ', key);
+    	localStorageService.set('currentGame', key);
+    	updateCurrentGame();
+
+        $scope.alphabets = localStorageService.get(key);
+    };
+
+    $scope.deleteGame = function(key) {	
+    	localStorageService.remove(key);
+    	localStorageService.remove('currentGame');
+    	initGame();
+    }
+
+    if (localStorageService.isSupported) {
+
+        initGame();
     }
 
     $scope.change = function(index, entry) {
@@ -37,7 +95,7 @@ app.controller('HomeCtrl', function($scope, $location, CONFIG, $rootScope, local
     var btnCheckResultClicked = false;
 
     //todo check group result
-    function checkGroupResult(){
+    function checkGroupResult() {
 
     }
 
@@ -82,7 +140,8 @@ app.controller('HomeCtrl', function($scope, $location, CONFIG, $rootScope, local
     }
 
     function save() {
-        localStorageService.set('data', $scope.alphabets);
+    	var currentGame =  localStorageService.get('currentGame');
+        localStorageService.set(currentGame, $scope.alphabets);
     }
 
 
@@ -102,15 +161,15 @@ app.controller('HomeCtrl', function($scope, $location, CONFIG, $rootScope, local
             entry = entry.toLowerCase();
 
             if (entry[0] == '$') {
-            	lookupInput($scope.alphabets[26].entries, entry);
+                lookupInput($scope.alphabets[26].entries, entry);
                 return;
             }
             if (entry[0] == '?') {
-            	lookupInput($scope.alphabets[27].entries, entry);
+                lookupInput($scope.alphabets[27].entries, entry);
                 return;
             }
 
-            
+
             var index = entry.charCodeAt(0) - 97;
 
             //console.log('index: ', index);
@@ -123,7 +182,7 @@ app.controller('HomeCtrl', function($scope, $location, CONFIG, $rootScope, local
     };
 
     function lookupInput(entries, entry) {
-    	//console.log(entries);
+        //console.log(entries);
         angular.forEach(entries, function(item, k) {
             if (item.key.toLowerCase() == entry) {
                 if (item.selected) {

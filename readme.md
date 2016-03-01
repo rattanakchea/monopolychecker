@@ -14,6 +14,7 @@ Feel free to fork and make a pull request.
 * Clean code structure with basic route setup
 * Save results into LocalStorage
 * Ability to export result
+* Multiple Games
 
 ## Changes
 * 2/29/2016

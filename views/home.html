@@ -6,6 +6,8 @@
 </div>
 <div class="row">
     <div class="col-xs-6 col-md-8">
+
+    	<h1>{{currentGame | uppercase}}</h1>
         <div ng-repeat="group in alphabets">
             <h2 class="group">
 	        {{group.group}} <small>{{prizes[$index]}} </small>
@@ -18,8 +20,20 @@
         </div>
     </div>
     <div class="col-xs-6 col-md-4">
+		<div>
+			<input type="submit" value="Create New Game" class="btn btn-primary" ng-click="createNewGame()">
+			<ul>
+				<li ng-repeat="game in gameArray">{{game | uppercase}} -- <a href="" ng-click="loadGame(game)">Load</a>
+				-- <a href="" ng-click="deleteGame(game)">Delete</a>
+				</li>
+			</ul>
+		</div>
+
+		<br>
+
         <input type="submit" value="Reset Game" class="btn btn-warning" ng-click="resetGame()">
         <input type="submit" value="Check Result" class="btn btn-success" ng-click="checkResult()">
+
         <div ng-hide="isWinning()" class="alert alert-warning" role="alert">
             <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> You have won a Monopoly game. Keep playing.
         </div>
