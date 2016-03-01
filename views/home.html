@@ -1,11 +1,11 @@
 <div class="page-header">
-    <p>
-        <input type="text" ng-model="search" placeholder="Type your entry">
-        <input type="submit" value="Add" class="btn btn-primary">
-    </p>
+    <form name="myForm" ng-submit="addEntry(inputEntry)">
+        <input type="text" id="entry" ng-model="inputEntry" required placeholder="Type your entry" maxlength="5">
+        <input type="submit" value="Add Entry" class="btn btn-primary">
+    </form>
 </div>
 <div class="row">
-    <div class="col-xs-6 col-md-6">
+    <div class="col-xs-6 col-md-8">
         <div ng-repeat="group in alphabets">
             <h2 class="group">
 	        {{group.group}} <small>{{prizes[$index]}} </small>
@@ -17,7 +17,7 @@
             </div>
         </div>
     </div>
-    <div class="col-xs-6 col-md-6">
+    <div class="col-xs-6 col-md-4">
         <input type="submit" value="Reset Game" class="btn btn-warning" ng-click="resetGame()">
         <input type="submit" value="Check Result" class="btn btn-success" ng-click="checkResult()">
         <div ng-hide="isWinning()" class="alert alert-warning" role="alert">

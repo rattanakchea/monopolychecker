@@ -1,6 +1,5 @@
 # How it works
 
-
 ## Problems
 Tired by using the monopoly board to check each entry. I built this web application to
 quickly allow users to enter their Entry and get real time result of the prizes they win.
@@ -8,8 +7,8 @@ quickly allow users to enter their Entry and get real time result of the prizes 
 
 ## Todo
 
-- Have a visual idea how the app looks like
-- Build a data layer
+- Have a visual idea how the app looks like ---
+- Build a data layer ---
 
 
 ## Content

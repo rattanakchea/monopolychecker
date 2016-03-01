@@ -11,9 +11,9 @@ Feel free to fork and make a pull request.
 
 ## Features
 * Simple and Mininal Web app template using JQuery, Bootstrap, AngularJS, Angular Route
-* Font Awesome CDN included
 * Clean code structure with basic route setup
-* Fixed top navbar
+* Save results into LocalStorage
+* Ability to export result
 
 ## Changes
 * 2/29/2016

@@ -1,4 +1,4 @@
-var alphabets = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
+var alphabetList = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
 ];
 
@@ -42,7 +42,7 @@ var colors = [
     { brown: '#cb7575' },
     { red: '#E71D36' },
     { orange: '#F17F42' }
-]
+];
 
 
 var alphabets = [];
@@ -68,7 +68,7 @@ function addData(num, count) {
         count: count,
         entries: []
     };
-    alphabets.push(obj)
+    alphabets.push(obj);
 }
 
 function buildData() {
@@ -96,7 +96,7 @@ function buildData2() {
             alphabets[i].entries.push({
                 key: alphabets[i].group + (start++) + getChar(65 + j),
                 selected: false
-            })
+            });
         }
         
     }
@@ -106,7 +106,7 @@ function buildData2() {
             alphabets[26].entries.push({
                 key: alphabets[26].group + (start++) + getChar(65 + j),
                 selected: false
-            })
+            });
         }
 
    addData('?', 8);
@@ -114,7 +114,7 @@ function buildData2() {
             alphabets[27].entries.push({
                 key: alphabets[27].group + (start++) + getChar(65 + j),
                 selected: false
-            })
+            });
         }
 
    //console.log(alphabets);
@@ -122,6 +122,5 @@ function buildData2() {
 
 buildData();
 buildData2();
-
 
 //console.log(alphabets);
