@@ -39,7 +39,7 @@ app.controller('HomeCtrl', function($scope, $location, CONFIG, $rootScope, local
             })
             var currentGame = localStorageService.get('currentGame') || lsKeys[0];
             $scope.alphabets = localStorageService.get(currentGame);
-             updateCurrentGame();
+            updateCurrentGame();
         }
     }
 
@@ -103,7 +103,7 @@ app.controller('HomeCtrl', function($scope, $location, CONFIG, $rootScope, local
     $scope.checkResult = function() {
 
         //toggle alert message
-        btnCheckResultClicked = !btnCheckResultClicked;
+        btnCheckResultClicked = true;
 
         $scope.results = [];
         angular.forEach($scope.alphabets, function(group, key) {
@@ -197,6 +197,33 @@ app.controller('HomeCtrl', function($scope, $location, CONFIG, $rootScope, local
             }
         });
     }
+
+    $scope.generateDownloadLink = function(){
+    	//var base64Data = encodeURIComponent($scope.alphabets);
+
+    	var base64Data = btoa(JSON.stringify(localStorageService.get(localStorageService.get('currentGame'))));
+    	$('#download').attr('href', 'data:application/text-json;base64,' + base64Data).show();
+    };
+
+    $scope.showTextArea = function(){
+    	$('#importData').show();
+    	$scope.sampleData = JSON.stringify(alphabets);
+    };
+
+    $scope.importData = function(data){
+
+    	//valid data
+    	var data = JSON.parse(data);
+    	if (data.length != 28){
+    		alert("Look like data is not valid. Make sure you import data from the data that was exported before");
+    		return;
+    	}
+
+    	var currentGame = localStorageService.get('currentGame');
+    	localStorageService.set(currentGame, data); 	
+    	$scope.alphabets = localStorageService.get(currentGame);
+    	$('#importData').slideUp();
+    };
 
 
 });

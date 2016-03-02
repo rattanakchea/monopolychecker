@@ -8,6 +8,7 @@
     <div class="col-xs-6 col-md-8">
 
     	<h1>{{currentGame | uppercase}}</h1>
+        
         <div ng-repeat="group in alphabets">
             <h2 class="group">
 	        {{group.group}} <small>{{prizes[$index]}} </small>
@@ -35,10 +36,19 @@
         <input type="submit" value="Check Result" class="btn btn-success" ng-click="checkResult()">
 
         <div ng-hide="isWinning()" class="alert alert-warning" role="alert">
-            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> You have won a Monopoly game. Keep playing.
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> You have not won a Monopoly game. Keep playing.
         </div>
         <ul ng-show="results.length > 0">
             <li ng-repeat="r in results">{{r.text}}</li>
         </ul>
+
+        <hr>
+        <h3>You can use links below to export and import the current game</h3>
+        <p><a href="" ng-click="generateDownloadLink()">Export data</a> -- <a href="" id="download" style="display:none">Download</a></p>
+        <p><a href="" ng-click="showTextArea()">Import data</a>
+        <div id="importData" style="display:none">
+            <textarea ng-model="sampleData" class="form-control" rows="6"></textarea>
+            <button class="btn" ng-click="importData(sampleData)">Import</button>
+        </div>
     </div>
 </div>
