@@ -224,4 +224,19 @@ app.controller('HomeCtrl', function($scope, $location, CONFIG, $rootScope, local
     };
 
 
+    //filter
+
+    $scope.filtered = true;
+
+    $scope.noFilter = function(){
+    	$scope.filtered = false;
+    };
+
+    $scope.setFilter = function(){
+    	$scope.filtered = true;
+    };
+
+
+
+
 });
