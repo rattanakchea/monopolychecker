@@ -8,8 +8,6 @@ app.controller('HomeCtrl', function($scope, $location, CONFIG, $rootScope, local
     $scope.prizes = prizes;
 
 
-
-
     $scope.resetGame = function() {
         if (confirm('Are you sure? ')) {
             localStorageService.clearAll();
@@ -73,10 +71,12 @@ app.controller('HomeCtrl', function($scope, $location, CONFIG, $rootScope, local
         $scope.alphabets = localStorageService.get(key);
     };
 
-    $scope.deleteGame = function(key) {	
-    	localStorageService.remove(key);
-    	localStorageService.remove('currentGame');
-    	initGame();
+    $scope.deleteGame = function(key) {
+    	if (confirm('Are you sure you want delete this game? ')){
+    		localStorageService.remove(key);
+	    	localStorageService.remove('currentGame');
+	    	initGame();
+    	}
     }
 
     if (localStorageService.isSupported) {
@@ -200,7 +200,6 @@ app.controller('HomeCtrl', function($scope, $location, CONFIG, $rootScope, local
 
     $scope.generateDownloadLink = function(){
     	//var base64Data = encodeURIComponent($scope.alphabets);
-
     	var base64Data = btoa(JSON.stringify(localStorageService.get(localStorageService.get('currentGame'))));
     	$('#download').attr('href', 'data:application/text-json;base64,' + base64Data).show();
     };
@@ -211,7 +210,6 @@ app.controller('HomeCtrl', function($scope, $location, CONFIG, $rootScope, local
     };
 
     $scope.importData = function(data){
-
     	//valid data
     	var data = JSON.parse(data);
     	if (data.length != 28){

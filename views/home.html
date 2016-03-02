@@ -23,11 +23,14 @@
     <div class="col-xs-6 col-md-4">
 		<div>
 			<input type="submit" value="Create New Game" class="btn btn-primary" ng-click="createNewGame()">
-			<ul>
-				<li ng-repeat="game in gameArray">{{game | uppercase}} -- <a href="" ng-click="loadGame(game)">Load</a>
+            <br><br>
+            <table class="table">
+			<tr ng-class="{ 'success' : currentGame == game }" ng-repeat="game in gameArray">
+				<td>{{game | uppercase}} -- <a href="" ng-click="loadGame(game)">Load</a>
 				-- <a href="" ng-click="deleteGame(game)">Delete</a>
-				</li>
-			</ul>
+				</td>
+			</tr>
+            </table>
 		</div>
 
 		<br>
