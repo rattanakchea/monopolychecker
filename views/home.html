@@ -9,7 +9,7 @@
 
     	<h1>{{currentGame | uppercase}}</h1>
         
-        <div ng-repeat="group in alphabets">
+       <!--  <div ng-repeat="group in alphabets">
             <h2 class="group">
 	        {{group.group}} <small>{{prizes[$index]}} </small>
 	        </h2>
@@ -18,7 +18,22 @@
             	<input type="checkbox" value="{{entry.key}}" ng-model="entry.selected" ng-change="change($index, entry.key)"> {{entry.key}} &nbsp;
             	</span>
             </div>
+        </div> -->
+        
+        <div class="panel panel-info" ng-repeat="group in alphabets">
+            <div class="panel-heading">
+                <h1 class="panel-title"><strong>{{group.group}}</strong> -- {{prizes[$index]}}</h1>
+            </div>
+            <div class="panel-body">
+                <div class="input-group">
+                <span ng-if="!entry.selected" ng-repeat="entry in group.entries">
+                <input type="checkbox" value="{{entry.key}}" ng-model="entry.selected" ng-change="change($index, entry.key)">
+                <span ng-class=" {'text-muted, small': entry.selected }">{{entry.key}}</span> &nbsp;
+                </span>
+            </div>
+            </div>
         </div>
+
     </div>
     <div class="col-xs-6 col-md-4">
 		<div>
