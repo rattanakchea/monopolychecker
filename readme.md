@@ -1,11 +1,6 @@
 ## Readme
 
 [DEMO](http://rattanakchea.github.io/monopolychecker "My website")
-![Screnshot](https://raw.githubusercontent.com/rattanakchea/monopolychecker/master/img/screenshot1.png "Screenshot")
-
-
-
-Feel free to fork and make a pull request.
 
 ## Features
 * Simple and Mininal Web app template using JQuery, Bootstrap, AngularJS, Angular Route
@@ -20,6 +15,9 @@ Feel free to fork and make a pull request.
 * 2/29/2016
     * update to user bower
     * add google font
+
+![Screnshot](https://raw.githubusercontent.com/rattanakchea/monopolychecker/master/app/img/screenshot1.png "Screenshot")
+
 
 ## Installation
 - git clone this repo
