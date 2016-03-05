@@ -25,8 +25,8 @@ module.exports = function(grunt) {
         bower_concat: {
             all: {
                 dest: {
-                    js: 'dist/_bower.js',
-                    css: 'dist/_bower.css'
+                    js: 'dist/bower.js',
+                    css: 'dist/bower.css'
                 }
             }
         }
