@@ -1,22 +1,22 @@
-# AngularJS + Boostrap Barbone Template
+## Readme
 
-![Screnshot](https://raw.githubusercontent.com/rattanakchea/angular-bootstrap-barebone/master/img/screenshot1.png "Screenshot")
+[DEMO](http://rattanakchea.github.io/monopolychecker "My website")
+![Screnshot](https://raw.githubusercontent.com/rattanakchea/monopolychecker/master/img/screenshot1.png "Screenshot")
 
-## Author
-Rattanak Chea - Web Developer
 
-[Website](http://rattanakchea.github.io/ "My website")
 
 Feel free to fork and make a pull request.
 
 ## Features
 * Simple and Mininal Web app template using JQuery, Bootstrap, AngularJS, Angular Route
 * Clean code structure with basic route setup
-* Save results into LocalStorage
+* HTML5 LocalStorage
 * Ability to export result
 * Multiple Games
 
 ## Changes
+* 3/5/2016
+	* use grunt to automate building dist folder
 * 2/29/2016
     * update to user bower
     * add google font
@@ -29,3 +29,6 @@ Feel free to fork and make a pull request.
 Python: `python - m SimpleHTTPServer 8000`
 
 PHP: `php -S localhost:8000`
+
+## My Website
+[Website](http://rattanakchea.github.io/ "My website")
