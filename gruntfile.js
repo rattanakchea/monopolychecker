@@ -37,6 +37,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-bower-concat');
 
     grunt.registerTask('serve', [
-        'copy',
+        'copy'
     ]);
 };
