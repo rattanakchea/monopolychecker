@@ -1,0 +1,31 @@
+{
+  "name": "monopolychecker",
+  "version": "1.0.0",
+  "description": "monopoly checker",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rattanakchea/monopolychecker.git"
+  },
+  "keywords": [
+    "angular",
+    "monopoly"
+  ],
+  "author": "rattanak chea",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rattanakchea/monopolychecker/issues"
+  },
+  "homepage": "https://github.com/rattanakchea/monopolychecker#readme",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-bower-concat": "^1.0.0",
+    "grunt-contrib-concat": "^1.0.0",
+    "grunt-contrib-connect": "^1.0.0",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-contrib-qunit": "^1.0.1",
+    "grunt-contrib-uglify": "^1.0.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-wiredep": "^2.0.0"
+  }
+}

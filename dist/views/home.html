@@ -1,0 +1,86 @@
+<div class="page-header">
+    <form name="myForm" ng-submit="addEntry(inputEntry)">
+        <input type="text" id="entry" ng-model="inputEntry" required placeholder="Type your entry" maxlength="5">
+        <input type="submit" value="Add Entry" class="btn btn-primary">
+    </form>
+</div>
+<div class="row">
+    <div class="col-xs-6 col-md-8">
+
+        <div class="row">
+            <div class="col-sm-8">
+                <h1>{{currentGame | uppercase}}</h1>
+            </div>
+            <div class="col-sm-4 text-right">
+                <br>
+                <button type="button" class="btn btn-default" ng-click="noFilter()">
+                  <span class="glyphicon glyphicon-th" aria-hidden="true"></span> Show all
+                </button>
+                <button type="button" class="btn btn-default" ng-click="setFilter();">
+                  <span class="glyphicon glyphicon-filter" aria-hidden="true"></span> Remaining
+                </button>
+            </div>
+        </div>
+    	
+        
+       <!--  <div ng-repeat="group in alphabets">
+            <h2 class="group">
+	        {{group.group}} <small>{{prizes[$index]}} </small>
+	        </h2>
+            <div class="input-group">
+                <span ng-repeat="entry in group.entries">
+            	<input type="checkbox" value="{{entry.key}}" ng-model="entry.selected" ng-change="change($index, entry.key)"> {{entry.key}} &nbsp;
+            	</span>
+            </div>
+        </div> -->
+        
+        <div class="panel panel-info" ng-repeat="group in alphabets">
+            <div class="panel-heading">
+                <h1 class="panel-title"><strong>{{group.group}}</strong> -- {{prizes[$index]}}</h1>
+            </div>
+            <div class="panel-body">
+                <div class="input-group">
+                <span ng-hide="entry.selected && filtered" ng-repeat="entry in group.entries">
+                <input type="checkbox" value="{{entry.key}}" ng-model="entry.selected" ng-change="change($index, entry.key)">
+                <span ng-class=" {'text-muted, small': entry.selected }">{{entry.key}}</span> &nbsp;
+                </span>
+            </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-xs-6 col-md-4">
+		<div>
+			<input type="submit" value="Create New Game" class="btn btn-primary" ng-click="createNewGame()">
+            <br><br>
+            <table class="table">
+			<tr ng-class="{ 'success' : currentGame == game }" ng-repeat="game in gameArray">
+				<td>{{game | uppercase}} -- <a href="" ng-click="loadGame(game)">Load</a>
+				-- <a href="" ng-click="deleteGame(game)">Delete</a>
+				</td>
+			</tr>
+            </table>
+		</div>
+
+		<br>
+
+        <input type="submit" value="Reset Game" class="btn btn-warning" ng-click="resetGame()">
+        <input type="submit" value="Check Result" class="btn btn-success" ng-click="checkResult()">
+
+        <div ng-hide="isWinning()" class="alert alert-warning" role="alert">
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> You have not won a Monopoly game. Keep playing.
+        </div>
+        <ul ng-show="results.length > 0">
+            <li ng-repeat="r in results">{{r.text}}</li>
+        </ul>
+
+        <hr>
+        <h3>You can use links below to export and import the current game</h3>
+        <p><a href="" ng-click="generateDownloadLink()">Export data</a> -- <a href="" id="download" style="display:none">Download</a></p>
+        <p><a href="" ng-click="showTextArea()">Import data</a>
+        <div id="importData" style="display:none">
+            <textarea ng-model="sampleData" class="form-control" rows="6"></textarea>
+            <button class="btn" ng-click="importData(sampleData)">Import</button>
+        </div>
+    </div>
+</div>
