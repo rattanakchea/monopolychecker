@@ -13,10 +13,10 @@
             </div>
             <div class="col-sm-4 text-right">
                 <br>
-                <button type="button" class="btn btn-default" ng-click="noFilter()">
+                <button ng-class="{'active': !filtered}" type="button" class="btn btn-default" ng-click="noFilter()">
                   <span class="glyphicon glyphicon-th" aria-hidden="true"></span> Show all
                 </button>
-                <button type="button" class="btn btn-default" ng-click="setFilter();">
+                <button ng-class="{'active': filtered}" type="button" class="btn btn-default" ng-click="setFilter();">
                   <span class="glyphicon glyphicon-filter" aria-hidden="true"></span> Remaining
                 </button>
             </div>
@@ -34,7 +34,8 @@
             </div>
         </div> -->
         
-        <div class="panel panel-info" ng-repeat="group in alphabets">
+        <div class="col-md-6" ng-repeat="group in alphabets">
+            <div class="panel panel-info" >
             <div class="panel-heading">
                 <h1 class="panel-title"><strong>{{group.group}}</strong> -- {{prizes[$index]}}</h1>
             </div>
@@ -47,7 +48,7 @@
             </div>
             </div>
         </div>
-
+        </div>
     </div>
     <div class="col-xs-6 col-md-4">
 		<div>
